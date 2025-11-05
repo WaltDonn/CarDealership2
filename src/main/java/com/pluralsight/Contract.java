@@ -1,4 +1,4 @@
-package com.pluralsight;
+package main.java.com.pluralsight;
 
 public abstract class Contract {
     protected String date, customerName, customerEmail;

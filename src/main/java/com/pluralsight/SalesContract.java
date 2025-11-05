@@ -1,4 +1,4 @@
-package com.pluralsight;
+package main.java.com.pluralsight;
 
 public class SalesContract extends Contract {
     private boolean isFinanced;

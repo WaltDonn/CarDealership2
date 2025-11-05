@@ -1,9 +1,9 @@
-package com.pluralsight;
+package main.java.com.pluralsight;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class Demo {
+public class UserInterface {
 
     private Dealership dealership;
     private Scanner scanner = new Scanner(System.in);
@@ -11,6 +11,7 @@ public class Demo {
     public UserInterface() {
 
     }
+
     private void init() {
         dealership = DealershipFileManager.getDealership();
     }
@@ -42,11 +43,11 @@ public class Demo {
                     System.out.println("Invalid option entered, please try again...");
                 }
             }
-        } while(true);
+        } while (true);
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
-        for (Vehicle v: vehicles) {
+        for (Vehicle v : vehicles) {
             System.out.println(v);
         }
         System.out.println();
@@ -177,7 +178,7 @@ public class Demo {
             System.out.println("Vehicle not found. Please try again.");
             return;
         } else {
-            displayVehicles();
+            displayVehicles(dealership.getAllVehicles());
 
 
         }
@@ -212,30 +213,30 @@ public class Demo {
         System.out.println("Will the customer finance? Enter 'Y' for yes and 'N' for no.");
         String userInput = scanner.nextLine();
         boolean isFinanced = userInput.equalsIgnoreCase("Y");
-        SalesContract sc = new SalesContract(date, customerName, customerEmail, vehicle,isFinanced);
+        SalesContract sc = new SalesContract(date, customerName, customerEmail, vehicle, isFinanced);
         ContractFileManager.saveContract(sc);
         dealership.removeVehicle(vehicle);
 
 
+    }
 
+    public void leaseVehicle(String date, String customerName, String customerEmail, Vehicle vehicle){
+        // TO DO
+    }
 
-
+    public static void homeMenuScreen () {
+        System.out.println("=== Options ===");
+        System.out.println("1 - Find vehicles within a price range");
+        System.out.println("2 - Find vehicles by make / model");
+        System.out.println("3 - Find vehicles by year range");
+        System.out.println("4 - Find vehicles by color");
+        System.out.println("5 - Find vehicles by mileage range");
+        System.out.println("6 - Find vehicles by type (car, truck, SUV, van)");
+        System.out.println("7 - List ALL vehicles");
+        System.out.println("8 - Add a vehicle");
+        System.out.println("9 - Remove a vehicle");
+        System.out.println("10 - Sell / Lease a vehicle");
+        System.out.println("99 - Quit");
     }
 
 }
-
-public static void homeMenuScreen () {
-    System.out.println("=== Options ===");
-    System.out.println("1 - Find vehicles within a price range");
-    System.out.println("2 - Find vehicles by make / model");
-    System.out.println("3 - Find vehicles by year range");
-    System.out.println("4 - Find vehicles by color");
-    System.out.println("5 - Find vehicles by mileage range");
-    System.out.println("6 - Find vehicles by type (car, truck, SUV, van)");
-    System.out.println("7 - List ALL vehicles");
-    System.out.println("8 - Add a vehicle");
-    System.out.println("9 - Remove a vehicle");
-    System.out.println("10 - Sell / Lease a vehicle");
-    System.out.println("99 - Quit");
-}
-

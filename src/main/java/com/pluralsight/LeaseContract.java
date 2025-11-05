@@ -1,4 +1,4 @@
-package com.pluralsight;
+package main.java.com.pluralsight;
 
 public class LeaseContract extends Contract {
     private Vehicle vehicle;
@@ -7,7 +7,7 @@ public class LeaseContract extends Contract {
     private boolean isFinanced;
 
     public LeaseContract(String date, String customerName, String customerEmail,Vehicle vehicleSold, double totalPrice, double monthlyPayment, Vehicle vehicle, double leaseFee, double expectedEndingValue, boolean isFinanced) {
-        super(date, customerName, customerEmail, vehicleSold, totalPrice, monthlyPayment);
+        super(date, customerName, customerEmail, vehicleSold);
         this.vehicle = vehicle;
         this.leaseFee = leaseFee;
         this.expectedEndingValue = expectedEndingValue;
